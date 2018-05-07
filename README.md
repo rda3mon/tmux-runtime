@@ -9,4 +9,4 @@ tmux configuration
 
 2) Install tmux
 
-`tmux source-file ~/.tmux/tmux.conf`
+`ln -s ~/.tmux/tmux.conf ~/.tmux.conf && tmux source-file ~/.tmux.conf`
