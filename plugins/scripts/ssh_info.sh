@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 ppid=$1
+cmd=$2
 re='^[0-9]+$'
 
-if [ -z $ppid ] || ! [[ $ppid =~ $re ]]; then
+if [ -z $ppid ] || ! [[ $ppid =~ $re ]] || [ $cmd != 'ssh' ]; then
 	exit 0
 fi
 
