@@ -16,5 +16,6 @@ pid="${pid[@]/$current_pid}"
 if [ -z $pid ]; then
 	echo ""
 else
-	echo "| CMD:$(ps --no-headers --ppid $ppid -o pid) | CPU:$(ps --no-headers --ppid $ppid -o %cpu) | Mem:$(ps --no-headers --ppid $ppid -o %mem) | CMD:$(ps --no-headers --ppid $ppid -o command) "
+	#echo "| CMD:$(ps --no-headers --ppid $ppid -o pid) "
+	echo $SSH_CLIENT
 fi

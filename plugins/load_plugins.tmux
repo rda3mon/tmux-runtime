@@ -8,10 +8,12 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cpu_interpolation=(
 	"\#{mem_percentage}"
 	"\#{process_info}"
+	"\#{ssh_info}"
 )
 cpu_commands=(
 	"$CURRENT_DIR/scripts/mem_percentage.sh"
 	"$CURRENT_DIR/scripts/process_info.sh"
+	"$CURRENT_DIR/scripts/ssh_info.sh"
 )
 
 get_tmux_option() {
