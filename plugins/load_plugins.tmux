@@ -9,11 +9,13 @@ cpu_interpolation=(
 	"\#{mem_percentage}"
 	"\#{process_info}"
 	"\#{ssh_info}"
+	"\#{load_info}"
 )
 cpu_commands=(
 	"$CURRENT_DIR/scripts/mem_percentage.sh"
 	"$CURRENT_DIR/scripts/process_info.sh"
 	"$CURRENT_DIR/scripts/ssh_info.sh"
+	"$CURRENT_DIR/scripts/load_info.sh"
 )
 
 get_tmux_option() {
