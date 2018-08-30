@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-mem_available=$(cat /proc/meminfo | grep MemAvailablee: | grep -o '[0-9]*')
+mem_available=$(cat /proc/meminfo | grep MemAvailable: | grep -o '[0-9]*')
 mem_free=$(cat /proc/meminfo | grep MemFree: | grep -o '[0-9]*')
 mem_inactive=$(cat /proc/meminfo | grep Inactive: | grep -o '[0-9]*')
 mem_sreclaimable=$(cat /proc/meminfo | grep SReclaimable: | grep -o '[0-9]*')
