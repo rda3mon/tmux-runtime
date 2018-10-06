@@ -26,7 +26,7 @@ else
 		remote_mem=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/mem_percentage.sh)
 		remote_load=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/load_info.sh)
 
-		echo "| CMD:$(ps --no-headers --ppid $ppid -o command) R:[ $remote_mem | Load: $remote_load] L:[ PID:$(ps --no-headers --ppid $ppid -o pid) | CPU:$(ps --no-headers --ppid $ppid -o %cpu) | Mem:$(ps --no-headers --ppid $ppid -o %mem) ] "
+		echo "| CMD:$(ps --no-headers --ppid $ppid -o command) R:[ $remote_mem | $remote_load ] L:[ PID:$(ps --no-headers --ppid $ppid -o pid) | CPU:$(ps --no-headers --ppid $ppid -o %cpu) | Mem:$(ps --no-headers --ppid $ppid -o %mem) ] "
 	else
 		echo "| CMD:$(ps --no-headers --ppid $ppid -o command) L:[ PID:$(ps --no-headers --ppid $ppid -o pid) | CPU:$(ps --no-headers --ppid $ppid -o %cpu) | Mem:$(ps --no-headers --ppid $ppid -o %mem) ]"
 	fi
