@@ -1,6 +1,7 @@
 TODO: 
 
-* Remote ssh information in status bar
+* Split screen to login to same ssh
+* Remote ssh information and top processes in status bar
 * Explore some more status information
-* Remote ssh pass local config
 * switch and kill current session
+* Remote ssh pass local config
