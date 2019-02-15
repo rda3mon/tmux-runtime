@@ -17,6 +17,7 @@ full_command=$(ps --no-headers --ppid $ppid -o command)
 pid_command=$(ps --no-headers --ppid $ppid -o pid)
 cpu_command=$(ps --no-headers --ppid $ppid -o %cpu)
 memory_command=$(ps --no-headers --ppid $ppid -o %mem)
+top_command=$(ps --no-headers -A -o %cpu:3,%mem:3,comm --sort=-%cpu,-%mem | head -1)
 if [ -z $pid ]; then
 	full_command=$(ps --no-headers --pid $ppid -o command)
 	pid_command=$(ps --no-headers --pid $ppid -o pid)
@@ -31,8 +32,9 @@ if [ $cmd == 'ssh' ]; then
 
 	remote_mem=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/mem_percentage.sh)
 	remote_load=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/load_info.sh)
+	remote_top=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/top_process.sh)
 
-	echo "| CMD:$full_command R:[ $remote_mem | $remote_load ] L:[ PID:$pid_command | CPU:$cpu_command | Mem:$memory_command ] "
+	echo "| CMD:$full_command R:[ $remote_mem | $remote_load | $remote_top ] L:[ PID:$pid_command | CPU:$cpu_command | MEM:$memory_command | TOP:$top_command ] "
 else
-	echo "| CMD:$full_command L:[ PID:$pid_command | CPU:$cpu_command | Mem:$memory_command ]"
+	echo "| CMD:$full_command L:[ PID:$pid_command | CPU:$cpu_command | MEM:$memory_command | TOP:$top_command]"
 fi
