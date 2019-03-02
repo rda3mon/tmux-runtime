@@ -1,7 +1,15 @@
-# tmux
-tmux configuration
+# Tmux configuration
+Customized, self-contained tmux customization with many unique features
 
-### Installation
+# Table of contents
+* [Installation](#installation)
+* [Features](#features)
+  * [Remote connection](#remote-connection)
+  * [Status line](#status-line)
+* [Key bindings](#key-bindings)
+* [Start on terminal](#start-on-terminal)
+
+## Installation
 
 1) Clone the repository
 
@@ -11,11 +19,8 @@ tmux configuration
 
 `ln -s ~/.tmux/tmux.conf ~/.tmux.conf && tmux source-file ~/.tmux.conf`
 
-## Some useful information
-### Copy Paste Information
+## Features
 
-### Tmux inside session
+## Key bindings
 
-### View terminal 256 color
-
-### Start Tmux on zsh/bash launch
+## Start on terminal
