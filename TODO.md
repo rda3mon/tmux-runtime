@@ -1,3 +1,3 @@
 TODO: 
 
-* Explore some more status information
+* Fix copy paste issue
