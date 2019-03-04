@@ -30,6 +30,13 @@ if [ $cmd == 'ssh' ]; then
 	ssh_user=$(ssh -G $ssh_host | grep '^user ' | sed 's/user //')
 	ssh_port=$(ssh -G $ssh_host | grep '^port ' | sed 's/port //')
 
+	ssh -q -l $ssh_user -p $ssh_port $ssh_host exit
+	retval=$?
+	if [[ $retval != 0 ]]; then
+		echo "-d" >> /tmp/test123
+		ssh_user=$(echo "$full_command" | sed "s/@.*//" | sed "s/ssh *//")
+	fi
+
 	remote_mem=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/mem_percentage.sh)
 	remote_load=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/load_info.sh)
 	remote_top=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/top_process.sh)
