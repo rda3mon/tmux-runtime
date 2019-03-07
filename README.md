@@ -6,6 +6,7 @@ Customized, self-contained tmux customization with many unique features
 * [Features](#features)
   * [Remote connection](#remote-connection)
   * [Status line](#status-line)
+  * [Copy Mode](#copy-mode)
 * [Key bindings](#key-bindings)
 
 ## Installation
