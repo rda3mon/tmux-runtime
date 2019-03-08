@@ -29,6 +29,7 @@ The power of tmux comes from its configurability and every action can be control
 * `prefix`: <kbd>ctrl</kbd> + <kbd>a</kbd>. If you are using tmux, you are well aware of `prefix`.
 * `prefix` + `?`: All of the key-bindings are availble here, you need not visit this page at all.
 * `prefix` + `r`: Reload tmux config to pick up the latest one.
+* `prefix` + C-p: Show copy buffer last 10 items
 
 Session related bindings
 
