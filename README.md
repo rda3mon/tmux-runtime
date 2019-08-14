@@ -23,7 +23,7 @@ Customized, self-contained tmux customization with many unique features
 
 **1) Duplicate ssh sessions:** This will be very useful if you often work on remote machines. With a single keypress, you will be able to login to the same remote machine.
 
-![Image](resources/images/screeshot_duplicate_session.png)
+![GIF](resources/gifs/duplicate_session.gif)
 
 **2) Custom pane title:** Pane title has a lot of information about the what is going on in that particular pane. More information is available if pane is running a ssh connection to a remote host.
 
@@ -33,9 +33,11 @@ Customized, self-contained tmux customization with many unique features
 * CPU, memory and load factor by that process
 * If ssh into a remote box, cpu memory and load factor of the remote instance
 
-![Image](resources/images/screenshot_pane_title.png)
+![GIF](resources/gifs/pane_title.gif)
 
-**3) Customized shortcuts:** Lot of convenient shortcuts were added which are listed below
+**3) Copy paste functionality:** Copy paste works the way you expect it to work
+
+**4) Customized shortcuts:** Lot of convenient shortcuts were added which are listed below
 
 ## Key bindings
 
