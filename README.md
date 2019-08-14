@@ -21,6 +21,22 @@ Customized, self-contained tmux customization with many unique features
 
 ## Features
 
+**1) Duplicate ssh sessions:** This will be very useful if you often work on remote machines. With a single keypress, you will be able to login to the same remote machine.
+
+![Image](resources/images/screeshot_duplicate_session.png)
+
+**2) Custom pane title:** Pane title has a lot of information about the what is going on in that particular pane. More information is available if pane is running a ssh connection to a remote host.
+
+* Parent Process ID of the pane shell
+* Command that is running
+* Process id of the command
+* CPU, memory and load factor by that process
+* If ssh into a remote box, cpu memory and load factor of the remote instance
+
+![Image](resources/images/screenshot_pane_title.png)
+
+**3) Customized shortcuts:** Lot of convenient shortcuts were added which are listed below
+
 ## Key bindings
 
 The power of tmux comes from its configurability and every action can be controlled by key-bindings. Here are the list of keybindings which are configured with this configuration. `prefix` means <kbd>ctrl</kbd> + <kbd>a</kbd> pressed together.
