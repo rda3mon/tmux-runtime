@@ -35,7 +35,15 @@ Customized, self-contained tmux customization with many unique features
 
 ![GIF](resources/gifs/pane_title.gif)
 
-**3) Copy paste functionality:** Copy paste works the way you expect it to work
+**3) Copy paste functionality:** Copy paste works in 2 modes.
+
+NOTE: Works only if you have `xclip` installed. 
+
+* Using Vi Mode: This config has vi mode enabled, using short cuts. `<prefix> + [` to enter into vi mode and once selection is done, press `Enter` to copy text into clipboard
+
+* Using Mouse: In this mode, you can drag using mouse to select any text, at the end of mouse drag release, the selected text will be copied to clipboard
+
+![GIF](resources/gifs/copy_mode.gif)
 
 **4) Customized shortcuts:** Lot of convenient shortcuts were added which are listed below
 
