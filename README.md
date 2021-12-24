@@ -13,11 +13,11 @@ Customized, self-contained tmux customization with many unique features
 
 1) Clone the repository
 
-`git clone git@github.com:rda3mon/tmux.git ~/.tmux`
+`git clone git@github.com:rda3mon/tmux.git ~/.tmux_runtime`
 
 2) Install tmux
 
-`ln -s ~/.tmux/tmux.conf ~/.tmux.conf && tmux source-file ~/.tmux.conf`
+`ln -s ~/.tmux_runtime/tmux.conf ~/.tmux.conf && tmux source-file ~/.tmux.conf`
 
 ## Features
 

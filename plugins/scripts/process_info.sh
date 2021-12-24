@@ -37,9 +37,9 @@ if [ $cmd == 'ssh' ]; then
 		ssh_user=$(echo "$full_command" | sed "s/@.*//" | sed "s/ssh *//")
 	fi
 
-	remote_mem=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/mem_percentage.sh)
-	remote_load=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/load_info.sh)
-	remote_top=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux/plugins/scripts/top_process.sh)
+	remote_mem=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux_runtime/plugins/scripts/mem_percentage.sh)
+	remote_load=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux_runtime/plugins/scripts/load_info.sh)
+	remote_top=$(ssh -l $ssh_user -p $ssh_port $ssh_host "bash -s" < /home/mallikarjunv/.tmux_runtime/plugins/scripts/top_process.sh)
 
 	echo "| CMD:$full_command R:[ $remote_mem | $remote_load | $remote_top ] L:[ PID:$pid_command | CPU:$cpu_command | MEM:$memory_command | TOP:$top_command ] "
 else
