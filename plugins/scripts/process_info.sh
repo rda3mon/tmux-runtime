@@ -8,21 +8,39 @@ if [ -z $ppid ] || ! [[ $ppid =~ $re ]]; then
 	exit 0
 fi
 
-pid=$(ps --no-headers --ppid $ppid -o pid)
-current_pid=$$
+if [ "$(uname)" == "Darwin" ]; then
+	pid=$(pgrep -P $ppid)
+	current_pid=$$
 
-pid="${pid[@]/$current_pid}"
+	pid="${pid[@]/$current_pid}"
 
-full_command=$(ps --no-headers --ppid $ppid -o command)
-pid_command=$(ps --no-headers --ppid $ppid -o pid)
-cpu_command=$(ps --no-headers --ppid $ppid -o %cpu)
-memory_command=$(ps --no-headers --ppid $ppid -o %mem)
-top_command=$(ps --no-headers -A -o %cpu:3,%mem:3,comm --sort=-%cpu,-%mem | head -1)
-if [ -z $pid ]; then
-	full_command=$(ps --no-headers --pid $ppid -o command)
-	pid_command=$(ps --no-headers --pid $ppid -o pid)
-	cpu_command=$(ps --no-headers --pid $ppid -o %cpu)
-	memory_command=$(ps --no-headers --pid $ppid -o %mem)
+	full_command=$(ps -p $pid -o command | sed 1d)
+	pid_command=$pid
+	cpu_command=$(ps -p $pid -o  %cpu | sed 1d)
+	memory_command=$(ps -p $pid -o  %mem | sed 1d)
+	if [ -z $pid ]; then
+		full_command=$(ps -p $ppid -o command | sed 1d)
+		pid_command=$ppid
+		cpu_command=$(ps -p $ppid -o  %cpu | sed 1d)
+		memory_command=$(ps -p $ppid -o  %mem | sed 1d)
+	fi
+else
+	pid=$(ps --no-headers --ppid $ppid -o pid)
+	current_pid=$$
+
+	pid="${pid[@]/$current_pid}"
+
+	full_command=$(ps --no-headers --ppid $ppid -o command)
+	pid_command=$(ps --no-headers --ppid $ppid -o pid)
+	cpu_command=$(ps --no-headers --ppid $ppid -o %cpu)
+	memory_command=$(ps --no-headers --ppid $ppid -o %mem)
+	top_command=$(ps --no-headers -A -o %cpu:3,%mem:3,comm --sort=-%cpu,-%mem | head -1)
+	if [ -z $pid ]; then
+		full_command=$(ps --no-headers --pid $ppid -o command)
+		pid_command=$(ps --no-headers --pid $ppid -o pid)
+		cpu_command=$(ps --no-headers --pid $ppid -o %cpu)
+		memory_command=$(ps --no-headers --pid $ppid -o %mem)
+	fi
 fi
 
 if [ $cmd == 'ssh' ]; then

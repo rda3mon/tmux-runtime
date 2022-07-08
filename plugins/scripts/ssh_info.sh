@@ -8,13 +8,17 @@ if [ -z $ppid ] || ! [[ $ppid =~ $re ]] || [ $cmd != 'ssh' ]; then
 	exit 0
 fi
 
-pid=$(ps --no-headers --ppid $ppid -o pid)
-current_pid=$$
-
+if [ "$(uname)" == "Darwin" ]; then
+	pid=$(pgrep -P $ppid)
+	current_pid=$$
+else
+	pid=$(ps --no-headers --ppid $ppid -o pid)
+	current_pid=$$
+fi
 pid="${pid[@]/$current_pid}"
 
 if [ -z $pid ]; then
 	echo ""
 else
-	echo "| CMD:$(ps --no-headers --ppid $ppid -o pid) "
+	echo "| CMD:$(ps -p $pid -o pid) | sed 1d"
 fi
